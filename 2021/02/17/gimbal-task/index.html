@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/main/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/main/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/main/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/main/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/main/css/main.css">
+
+
+<link rel="stylesheet" href="/main/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yaofenblogs.info","root":"/main/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="云台任务介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gimbal_task">
+<meta property="og:url" content="https://yaofenblogs.info/main/2021/02/17/gimbal-task/index.html">
+<meta property="og:site_name" content="电控技术文档">
+<meta property="og:description" content="云台任务介绍">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-17T10:12:10.000Z">
+<meta property="article:modified_time" content="2021-02-24T05:38:38.672Z">
+<meta property="article:author" content="共产主义接班人">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yaofenblogs.info/main/2021/02/17/gimbal-task/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>gimbal_task | 电控技术文档</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/main/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">电控技术文档</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-分类">
+
+    <a href="/main/categories/" rel="section"><i class="fas fa-folder-open fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-官方文档">
+
+    <a href="/main/download/" rel="section"><i class="fa fa-th fa-fw"></i>官方文档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yaofenblogs.info/main/2021/02/17/gimbal-task/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/main/images/avatar.gif">
+      <meta itemprop="name" content="共产主义接班人">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电控技术文档">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gimbal_task
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-17 18:12:10" itemprop="dateCreated datePublished" datetime="2021-02-17T18:12:10+08:00">2021-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 13:38:38" itemprop="dateModified" datetime="2021-02-24T13:38:38+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/main/categories/RMB/" itemprop="url" rel="index"><span itemprop="name">RMB</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/main/2021/02/17/gimbal-task/" class="post-meta-item leancloud_visitors" data-flag-title="gimbal_task" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">云台任务介绍</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="/style/auto-number-title.css" />
+
+
+
+<h2 id="云台任务"><a href="#云台任务" class="headerlink" title="云台任务"></a>云台任务</h2><h3 id="主要文件"><a href="#主要文件" class="headerlink" title="主要文件"></a>主要文件</h3><p>机器人的云台任务涉及到相当多的头文件及源文件，较为重要的源文件包括： </p>
+<ul>
+<li><p>gimbal_task.c<br>执行云台完整任务的源文件，在操作系统文件freertos.c中被调用。  </p>
+</li>
+<li><p> gimbal_behaviour.c<br>处理云台姿态和遥控器控制相关行为的源文件，在gimbal_task.c中被调用。</p>
+</li>
+<li><p>shoot.c<br>执行云台设计功能的源文件，在gimbal_task.c中被调用。这部分内容的介绍包含在 servo_task 中  </p>
+</li>
+<li><p>CAN_receive.c<br>CAN中断接收文件，在云台任务中主要用于向云台yaw轴电机，pitch轴电机，拨弹电机等发送控制电流，在gimbal_task.c中被调用。  </p>
+</li>
+</ul>
+<h3 id="存储类型及指针类型"><a href="#存储类型及指针类型" class="headerlink" title="存储类型及指针类型"></a>存储类型及指针类型</h3><h4 id="gimbal-control-t"><a href="#gimbal-control-t" class="headerlink" title="gimbal_control_t:"></a>gimbal_control_t:</h4><pre><code>typedef struct
+&#123;
+    const RC_ctrl_t *gimbal_rc_ctrl;
+    const fp32 *gimbal_INT_angle_point;  
+    const fp32 *gimbal_INT_gyro_point;  
+    gimbal_motor_t gimbal_yaw_motor;  
+    gimbal_motor_t gimbal_pitch_motor;  
+    gimbal_step_cali_t gimbal_cali;  
+&#125; gimbal_control_t;  
+</code></pre>
+<p>gimbal_control_t 类型包含了云台的所有信息，包括：遥控器接收数据存和yaw轴，pitch轴的电机数据。  </p>
+<h4 id="gimbal-motor-t"><a href="#gimbal-motor-t" class="headerlink" title="gimbal_motor_t:"></a>gimbal_motor_t:</h4><pre><code>typedef struct
+&#123;
+    const motor_measure_t *gimbal_motor_measure;
+    gimbal_PID_t gimbal_motor_absolute_angle_pid;
+    gimbal_PID_t gimbal_motor_relative_angle_pid;
+    pid_type_def gimbal_motor_gyro_pid;
+    gimbal_motor_mode_e gimbal_motor_mode;
+    gimbal_motor_mode_e last_gimbal_motor_mode;
+    uint16_t offset_ecd;
+    fp32 max_relative_angle; //rad
+    fp32 min_relative_angle; //rad
+
+    fp32 relative_angle;     //rad
+    fp32 relative_angle_set; //rad
+    fp32 absolute_angle;     //rad
+    fp32 absolute_angle_set; //rad
+    fp32 motor_gyro;         //rad/s
+    fp32 motor_gyro_set;
+    fp32 motor_speed;
+    fp32 raw_cmd_current;
+    fp32 current_set;
+    int16_t given_current;
+
+&#125; gimbal_motor_t;  
+</code></pre>
+<p>gimbal_motor_t 类型定义了单个云台电机的数据存储结构。其中，遥控器设置模式存储于gimbal_motor_mode_e枚举类型的结构中。</p>
+<h4 id="gimbal-step-cali-t"><a href="#gimbal-step-cali-t" class="headerlink" title="gimbal_step_cali_t:"></a>gimbal_step_cali_t:</h4><p>gimbal_step_cali_t 类型定义了云台电机角度及其编码值的最大最小值，用以校准云台电机中值。</p>
+<h3 id="云台任务工作流程"><a href="#云台任务工作流程" class="headerlink" title="云台任务工作流程"></a>云台任务工作流程</h3><p>gimbal_task:</p>
+<h4 id="gimbal-init-amp-gimbal-control"><a href="#gimbal-init-amp-gimbal-control" class="headerlink" title="gimbal_init(&amp;gimbal_control)"></a>gimbal_init(&amp;gimbal_control)</h4><ul>
+<li>PID初始化。</li>
+<li>获取指向电机数据，陀螺仪数据，遥控器数据的指针。</li>
+<li>初始化云台电机模式为 GIMBAL_MOTOR_RAW 状态。</li>
+</ul>
+<h4 id="shoot-init"><a href="#shoot-init" class="headerlink" title="shoot_init()"></a>shoot_init()</h4><p>对拨弹轮电机数据进行初始化</p>
+<h4 id="判断电机是否在线"><a href="#判断电机是否在线" class="headerlink" title="判断电机是否在线"></a>判断电机是否在线</h4><p>通过函数 toe_is_error(uint8_t toe) 判断yaw轴和pitch轴电机有无掉线，若有电机掉线，则阻塞云台程序运行。</p>
+<h4 id="gimbal-set-mode-amp-gimbal-control"><a href="#gimbal-set-mode-amp-gimbal-control" class="headerlink" title="gimbal_set_mode(&amp;gimbal_control)"></a>gimbal_set_mode(&amp;gimbal_control)</h4><p>设置云台控制模式，调用函数void gimbal_behaviour_mode_set(gimbal_control_t *gimbal_mode_set)，该函数在源文件gimbal_behaviour.c中被定义。这个函数有点长，至下文的gimbal_behaviour.c部分查看。  </p>
+<h4 id="gimbal-mode-change-control-transit-amp-gimbal-control"><a href="#gimbal-mode-change-control-transit-amp-gimbal-control" class="headerlink" title="gimbal_mode_change_control_transit(&amp;gimbal_control)"></a>gimbal_mode_change_control_transit(&amp;gimbal_control)</h4><p>控制云台模式切换，若发生电机模式切换，则重新赋值电机状态。<br>云台状态摘要：<br>    typedef enum<br>        {<br>        GIMBAL_MOTOR_RAW = 0,<br>        GIMBAL_MOTOR_GYRO,<br>        GIMBAL_MOTOR_ENCONDE,<br>    } gimbal_motor_mode_e;<br>云台状态数值为枚举类型，被定义于头文件gimbal_task.h中，分别为：<br>1.电机原始值控制<br>2.电机（C板）陀螺仪角度控制<br>3.电机编码值角度控制</p>
+<h4 id="gimbal-feedback-update-amp-gimbal-control"><a href="#gimbal-feedback-update-amp-gimbal-control" class="headerlink" title="gimbal_feedback_update(&amp;gimbal_control)"></a>gimbal_feedback_update(&amp;gimbal_control)</h4><p>该函数进行云台当前数据的反馈，函数检验完参数是否是空指针后，完成以下任务：</p>
+<ul>
+<li>利用指针获取yaw轴，pitch轴电机绝对角度的更新值。</li>
+<li>通过云台电机自身编码值和电机转动半径的关系，解算出电机和底盘的相对角度。</li>
+</ul>
+<h4 id="gimbal-set-control-amp-gimbal-control"><a href="#gimbal-set-control-amp-gimbal-control" class="headerlink" title="gimbal_set_control(&amp;gimbal_control)"></a>gimbal_set_control(&amp;gimbal_control)</h4><p>该函数设置云台控制相关数值，完成以下任务：</p>
+<ul>
+<li>云台电机增减角度赋默认值（0.0f）  </li>
+<li>调用函数 gimbal_behaviour_control_set(&amp;add_yaw_angle, &amp;add_pitch_angle, set_control),该函数定义在源文件gimbal_behaviour.c中。该函数检验完参数是否是空指针后，根据设置的云台行为模式调用各自的设置函数，具体执行内容于gimbal_behaviour.c源文件中解释。</li>
+</ul>
+<h4 id="gimbal-control-loop-amp-gimbal-control"><a href="#gimbal-control-loop-amp-gimbal-control" class="headerlink" title="gimbal_control_loop(&amp;gimbal_control)"></a>gimbal_control_loop(&amp;gimbal_control)</h4><p>该函数计算云台控制PID，函数检验完参数是否是空指针后，完成以下任务：  </p>
+<ul>
+<li>根据云台电机状态（GIMBAL_MOTOR_RAW，GIMBAL_MOTOR_GYRO，GIMBAL_MOTOR_ENCONDE），调用对应模式的pid调试函数，这些函数定义于源文件gimbal_task.c中。</li>
+<li>对角度环，速度环进行串级pid调试。</li>
+<li>赋值电流值。</li>
+</ul>
+<h4 id="shoot-can-set-current-shoot-control-loop"><a href="#shoot-can-set-current-shoot-control-loop" class="headerlink" title="shoot_can_set_current = shoot_control_loop()"></a>shoot_can_set_current = shoot_control_loop()</h4><p>云台控制射击任务，其中函数 shoot_control_loop() 返回控制拨弹电机电流值，该函数被定义于源文件shoot.c中。</p>
+<h4 id="CAN-cmd-gimbal-yaw-can-set-current-pitch-can-set-current-shoot-can-set-current-0"><a href="#CAN-cmd-gimbal-yaw-can-set-current-pitch-can-set-current-shoot-can-set-current-0" class="headerlink" title="CAN_cmd_gimbal(yaw_can_set_current, pitch_can_set_current, shoot_can_set_current, 0)"></a>CAN_cmd_gimbal(yaw_can_set_current, pitch_can_set_current, shoot_can_set_current, 0)</h4><p>该函数定义于源文件 CAN_receive.c 中，和底盘任务中通过CAN线发送封包的函数功能相同，利用HAL库封装好的函数向CAN总线发送封包。其中，封包的首地址为0x1FF。</p>
+<pre><code>CAN_GIMBAL_ALL_ID = 0x1FF
+</code></pre>
+<h3 id="源文件-gimbal-behaviour-c"><a href="#源文件-gimbal-behaviour-c" class="headerlink" title="源文件 gimbal_behaviour.c"></a>源文件 gimbal_behaviour.c</h3><p>云台任务中的部分函数被定义在源文件gimbal_behaviour.c中，该文件的作用为辅助源文件 gimbal_task.c 完成云台控制任务，提供姿态解算函数等。该文件不由操作系统文件freertos.c直接调用，只由 gimbal_task() 函数调用，起到连接底层函数与表层函数的作用。</p>
+<h4 id="云台行为状态机"><a href="#云台行为状态机" class="headerlink" title="云台行为状态机"></a>云台行为状态机</h4><p>云台行为状态被对应为一个枚举类型，该枚举类型被定义于头文件 gimbal_behaviour.h 中。</p>
+<pre><code>typedef enum
+&#123;
+    GIMBAL_ZERO_FORCE = 0, 
+    GIMBAL_INIT,           
+    GIMBAL_CALI,           
+    GIMBAL_ABSOLUTE_ANGLE, 
+    GIMBAL_RELATIVE_ANGLE, 
+    GIMBAL_MOTIONLESS,     
+&#125; gimbal_behaviour_e;
+</code></pre>
+<ul>
+<li> 根据当前云台行为模式的不同，函数 void gimbal_behaviour_mode_set(gimbal_control_t *gimbal_mode_set) 中设置的云台电机状态机模式也会不同。</li>
+<li> 根据当前云台行为模式的不同，函数 void gimbal_control_loop(gimbal_control_t *control_loop) 会调用不同的云台控制函数。</li>
+</ul>
+<h4 id="云台行为控制"><a href="#云台行为控制" class="headerlink" title="云台行为控制"></a>云台行为控制</h4><p>任务中通过调用 gimbal_behaviour_control_set(&amp;add_yaw_angle, &amp;add_pitch_angle, set_control) ,引入yaw轴，pitch轴电机的增量角，并根据云台电机状态机的模式，向电机发送控制值。该函数被 void gimbal_set_control(gimbal_control_t *set_control) 调用，但其本身定义于源文件gimbal_behaviour.c中。<br>下列函数均定义于源文件gimbal_behaviour.c中，且被云台行为控制函数调用：  </p>
+<blockquote>
+<p>下列函数均为接受3个参数的无返回值函数：</p>
+<blockquote>
+<p>fp32 *yaw: yaw轴电机角度增量，为上级函数中定义的局部变量的指针。<br>fp32 *pitch: pitch轴电机角度增量，为上级函数中定义的局部变量的指针。<br>gimbal_control_t *gimbal_control_set: 云台控制总数据结构，为全局变量的指针。  </p>
+</blockquote>
+</blockquote>
+<h5 id="云台无力模式"><a href="#云台无力模式" class="headerlink" title="云台无力模式"></a>云台无力模式</h5><blockquote>
+<p>gimbal_zero_force_control(add_yaw, add_pitch, gimbal_control_set);  </p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_ZERO_FORCE 时，这个函数会被调用。函数检验完参数是否包含空指针后，将角度增量值置零。  </p>
+<pre><code>*yaw = 0.0f;
+*pitch = 0.0f;
+</code></pre>
+<h5 id="云台初始化控制模式"><a href="#云台初始化控制模式" class="headerlink" title="云台初始化控制模式"></a>云台初始化控制模式</h5><blockquote>
+<p>gimbal_init_control(add_yaw, add_pitch, gimbal_control_set);</p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_INIT 时，这个函数会被调用。函数检验完参数是否包含空指针后，判断pitch轴电机当前角度与预设角度的差值是否大于误差阈值，再根据电机当前角度与初始预设角度的差值，计算两轴电机角度增量，使电机在限定时间内完成姿态初始化。</p>
+<pre><code>   if (fabs(INIT_PITCH_SET - gimbal_control_set-&gt;gimbal_pitch_motor.absolute_angle) &gt; GIMBAL_INIT_ANGLE_ERROR)
+&#123;
+    *pitch = (INIT_PITCH_SET - gimbal_control_set-&gt;gimbal_pitch_motor.absolute_angle) * GIMBAL_INIT_PITCH_SPEED;
+    *yaw = 0.0f;
+&#125;
+else
+&#123;
+    *pitch = (INIT_PITCH_SET - gimbal_control_set-&gt;gimbal_pitch_motor.absolute_angle) * GIMBAL_INIT_PITCH_SPEED;
+    *yaw = (INIT_YAW_SET - gimbal_control_set-&gt;gimbal_yaw_motor.relative_angle) * GIMBAL_INIT_YAW_SPEED;
+&#125;
+</code></pre>
+<h5 id="云台校准控制模式"><a href="#云台校准控制模式" class="headerlink" title="云台校准控制模式"></a>云台校准控制模式</h5><blockquote>
+<p>gimbal_cali_control(add_yaw, add_pitch, gimbal_control_set);  </p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_CALI 时，这个函数会被调用。函数检验完参数是否包含空指针后，分别获取yaw轴，pitch轴电机旋转角度的最大和最小值。</p>
+<h5 id="云台陀螺仪控制模式"><a href="#云台陀螺仪控制模式" class="headerlink" title="云台陀螺仪控制模式"></a>云台陀螺仪控制模式</h5><blockquote>
+<p>gimbal_absolute_angle_control(add_yaw, add_pitch, gimbal_control_set);</p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_ABSOLUTE_ANGLE 时，这个函数会被调用。函数检验完参数是否包含空指针后，基于从遥控器接收到的对应通道的数值与鼠标点击值的大小，计算yaw轴，pitch轴旋转角度增量。<br>该模式有通过键盘控制云台180°转动的功能。</p>
+<pre><code>static int16_t yaw_channel = 0, pitch_channel = 0;
+
+rc_deadband_limit(gimbal_control_set-&gt;gimbal_rc_ctrl-&gt;rc.ch[YAW_CHANNEL], yaw_channel, RC_DEADBAND);
+rc_deadband_limit(gimbal_control_set-&gt;gimbal_rc_ctrl-&gt;rc.ch[PITCH_CHANNEL], pitch_channel, RC_DEADBAND);
+
+*yaw = yaw_channel * YAW_RC_SEN - gimbal_control_set-&gt;gimbal_rc_ctrl-&gt;mouse.x * YAW_MOUSE_SEN;
+*pitch = pitch_channel * PITCH_RC_SEN + gimbal_control_set-&gt;gimbal_rc_ctrl-&gt;mouse.y * PITCH_MOUSE_SEN;  
+</code></pre>
+<h5 id="云台编码值控制模式"><a href="#云台编码值控制模式" class="headerlink" title="云台编码值控制模式"></a>云台编码值控制模式</h5><blockquote>
+<p>gimbal_relative_angle_control(add_yaw, add_pitch, gimbal_control_set);</p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_RELATIVE_ANGLE 时，这个函数会被调用。函数检验完参数是否包含空指针后，基于从遥控器接收到的对应通道的数值与鼠标点击值的大小，计算yaw轴，pitch轴旋转角度增量。</p>
+<blockquote>
+<p>基本代码与陀螺仪控制模式一致。</p>
+</blockquote>
+<h5 id="云台遥控器无输入控制模式"><a href="#云台遥控器无输入控制模式" class="headerlink" title="云台遥控器无输入控制模式"></a>云台遥控器无输入控制模式</h5><blockquote>
+<p>gimbal_motionless_control(add_yaw, add_pitch, gimbal_control_set);</p>
+</blockquote>
+<p>当云台行为模式是 GIMBAL_MOTIONLESS 时，这个函数会被调用。函数检验完参数是否包含空指针后，将角度增量值置为零。<br>（与云台无力模式相同）  </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/main/2021/02/17/chassis-task/" rel="prev" title="chassis_task">
+      <i class="fa fa-chevron-left"></i> chassis_task
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/main/2021/02/17/detect-task/" rel="next" title="detect_task">
+      detect_task <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">云台任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">主要文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B%E5%8F%8A%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">存储类型及指针类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-control-t"><span class="nav-number">1.2.1.</span> <span class="nav-text">gimbal_control_t:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-motor-t"><span class="nav-number">1.2.2.</span> <span class="nav-text">gimbal_motor_t:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-step-cali-t"><span class="nav-number">1.2.3.</span> <span class="nav-text">gimbal_step_cali_t:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E4%BB%BB%E5%8A%A1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">云台任务工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-init-amp-gimbal-control"><span class="nav-number">1.3.1.</span> <span class="nav-text">gimbal_init(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shoot-init"><span class="nav-number">1.3.2.</span> <span class="nav-text">shoot_init()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%94%B5%E6%9C%BA%E6%98%AF%E5%90%A6%E5%9C%A8%E7%BA%BF"><span class="nav-number">1.3.3.</span> <span class="nav-text">判断电机是否在线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-set-mode-amp-gimbal-control"><span class="nav-number">1.3.4.</span> <span class="nav-text">gimbal_set_mode(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-mode-change-control-transit-amp-gimbal-control"><span class="nav-number">1.3.5.</span> <span class="nav-text">gimbal_mode_change_control_transit(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-feedback-update-amp-gimbal-control"><span class="nav-number">1.3.6.</span> <span class="nav-text">gimbal_feedback_update(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-set-control-amp-gimbal-control"><span class="nav-number">1.3.7.</span> <span class="nav-text">gimbal_set_control(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gimbal-control-loop-amp-gimbal-control"><span class="nav-number">1.3.8.</span> <span class="nav-text">gimbal_control_loop(&amp;gimbal_control)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shoot-can-set-current-shoot-control-loop"><span class="nav-number">1.3.9.</span> <span class="nav-text">shoot_can_set_current &#x3D; shoot_control_loop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAN-cmd-gimbal-yaw-can-set-current-pitch-can-set-current-shoot-can-set-current-0"><span class="nav-number">1.3.10.</span> <span class="nav-text">CAN_cmd_gimbal(yaw_can_set_current, pitch_can_set_current, shoot_can_set_current, 0)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E6%96%87%E4%BB%B6-gimbal-behaviour-c"><span class="nav-number">1.4.</span> <span class="nav-text">源文件 gimbal_behaviour.c</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E8%A1%8C%E4%B8%BA%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="nav-number">1.4.1.</span> <span class="nav-text">云台行为状态机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E8%A1%8C%E4%B8%BA%E6%8E%A7%E5%88%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text">云台行为控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E6%97%A0%E5%8A%9B%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">云台无力模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">云台初始化控制模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E6%A0%A1%E5%87%86%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">云台校准控制模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E9%99%80%E8%9E%BA%E4%BB%AA%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">云台陀螺仪控制模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E7%BC%96%E7%A0%81%E5%80%BC%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">云台编码值控制模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%91%E5%8F%B0%E9%81%A5%E6%8E%A7%E5%99%A8%E6%97%A0%E8%BE%93%E5%85%A5%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.2.6.</span> <span class="nav-text">云台遥控器无输入控制模式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">共产主义接班人</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/main/archives">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/main/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共产主义接班人</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3b07jhgYy9Y3JAr1zGTmJIOx-gzGzoHsz","app_key":"D10OVRUiMABjvqQkHKYeb9s2","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/main/lib/anime.min.js"></script>
+  <script src="/main/lib/velocity/velocity.min.js"></script>
+  <script src="/main/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/main/js/utils.js"></script>
+
+<script src="/main/js/motion.js"></script>
+
+
+<script src="/main/js/schemes/pisces.js"></script>
+
+
+<script src="/main/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

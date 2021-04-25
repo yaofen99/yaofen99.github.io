@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/main/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/main/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/main/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/main/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/main/css/main.css">
+
+
+<link rel="stylesheet" href="/main/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yaofenblogs.info","root":"/main/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="射击模块介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="servo_task">
+<meta property="og:url" content="https://yaofenblogs.info/main/2021/02/17/servo-task/index.html">
+<meta property="og:site_name" content="电控技术文档">
+<meta property="og:description" content="射击模块介绍">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-17T10:13:05.000Z">
+<meta property="article:modified_time" content="2021-02-24T05:38:28.393Z">
+<meta property="article:author" content="共产主义接班人">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yaofenblogs.info/main/2021/02/17/servo-task/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>servo_task | 电控技术文档</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/main/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">电控技术文档</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-分类">
+
+    <a href="/main/categories/" rel="section"><i class="fas fa-folder-open fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-官方文档">
+
+    <a href="/main/download/" rel="section"><i class="fa fa-th fa-fw"></i>官方文档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yaofenblogs.info/main/2021/02/17/servo-task/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/main/images/avatar.gif">
+      <meta itemprop="name" content="共产主义接班人">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电控技术文档">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          servo_task
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-17 18:13:05" itemprop="dateCreated datePublished" datetime="2021-02-17T18:13:05+08:00">2021-02-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-24 13:38:28" itemprop="dateModified" datetime="2021-02-24T13:38:28+08:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/main/categories/RMB/" itemprop="url" rel="index"><span itemprop="name">RMB</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/main/2021/02/17/servo-task/" class="post-meta-item leancloud_visitors" data-flag-title="servo_task" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">射击模块介绍</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="摩擦轮与弹丸发射"><a href="#摩擦轮与弹丸发射" class="headerlink" title="摩擦轮与弹丸发射"></a>摩擦轮与弹丸发射</h3><p>有一个名为 servo_task 的文件只控制摩擦轮的加速减速，而拨弹轮的控制附属于云台控制。为了简化云台介绍文件，本篇将云台和拨弹轮分开介绍，后期会另附流程图。</p>
+<h3 id="servo-task-c"><a href="#servo-task-c" class="headerlink" title="servo_task.c"></a>servo_task.c</h3><p>servo_task虽然执行的命令很少，但是也是一个独立的任务。</p>
+<h4 id="主要指针类型与指针"><a href="#主要指针类型与指针" class="headerlink" title="主要指针类型与指针"></a>主要指针类型与指针</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> RC_ctrl_t *servo_rc;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-主要工作流程："><a href="#2-主要工作流程：" class="headerlink" title="2.主要工作流程："></a>2.主要工作流程：</h4><p>检测是否按下了控制四个摩擦轮，直接按下是加速，按下shift和摩擦轮对应的键则为减速。<br>这里使用了四个摩擦轮可能是考虑到英雄会用到4个摩擦轮，但是为什么左右摩擦轮不对称就很迷。实际应用的时候要注意一下。</p>
+<h3 id="shoot-c"><a href="#shoot-c" class="headerlink" title="shoot.c"></a>shoot.c</h3><p>设计任务不由操作系统直接调用，主要由gimbal_task.c文件调用</p>
+<blockquote>
+<p>首次开启摩擦轮的时候需要将摩擦轮直接开到最大才能进入 SHOOT_READY_FRIC 状态。<br>本例程中的所有 given_current 都是通过了PID计算再最终赋值的。</p>
+</blockquote>
+<h4 id="主要指针类型与指针-1"><a href="#主要指针类型与指针-1" class="headerlink" title="主要指针类型与指针"></a>主要指针类型与指针</h4><p>控制射击状态的指针：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">shoot_control_t</span> shoot_control;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="重要的工作状态"><a href="#重要的工作状态" class="headerlink" title="重要的工作状态"></a>重要的工作状态</h4><ul>
+<li>shoot_control.shoot_mode：<br>初始的 shoot_mode_e 中有7个状态，SHOOT_STOP ，SHOOT_READY_FRIC，SHOOT_READY_BULLET，SHOOT_READY，SHOOT_BULLET，SHOOT_CONTINUE_BULLET，SHOOT_DONE<blockquote>
+<p>上档：左手上拨开启，再次关闭，直接切换SHOOT_READY_FRIC 和 SHOOT_STOP模式。<br>中档：可通过键盘开关摩擦轮（Q开启E关闭），同上，直接切换SHOOT_READY_FRIC 和 SHOOT_STOP模式。<br>下档：只有在 SHOOT_READY 的状态下下按一次或鼠标按下一次，进入单发 SHOOT_BULLET 模式，鼠标长按进入连发 SHOOT_CONTINUE_BULLET 模式，松手则返回 SHOOT_READY_BULLET模式</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>进入 SHOOT_READY_FRIC 状态后，摩擦轮不断加速（斜波加速），到达最高转速后进入 SHOOT_READY_BULLET 状态。</p>
+<blockquote>
+<p>进入 SHOOT_READY_BULLET 状态后,子弹发射标志位 shoot_control.key 若为真，则进入 SHOOT_READY 状态。 </p>
+<blockquote>
+<p>进入 SHOOT_READY 状态后，若 shoot_control.key 不为真，则退回 SHOOT_READY_BULLET 状态。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>在子弹完成一次单发（SHOOT_BULLET）后，进入 SHOOT_DONE 模式，若标发射志位为真，则继续单发，若发射标志位为假，等待一定时间后退回 SHOOT_READY_BULLET 模式  </p>
+</blockquote>
+<p>上面都是在shoot_mode()函数里完成的，但是这个函数也就在 shoot_control_loop() 函数里调用国一次，相当于将一个大函数分成两块吧…下面的是shoot_control_loop()中的模式控制部分  </p>
+<blockquote>
+<blockquote>
+<p>进入 SHOOT_READY_BULLET 状态后，若标志位为假，则按这个档位的速度发射子弹，否则置零 （如果标志位为1，则应该为 SHOOT_READY 模式，发生了矛盾，故置一）</p>
+<blockquote>
+<p>进入 SHOOT_READY 或 SHOOT_CONTINUE_BULLET 状态后，无论标志位，直接发射。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>shoot_control.key：用来控制是否发射子弹的标志位</li>
+</ul>
+<h4 id="主要工作流程："><a href="#主要工作流程：" class="headerlink" title="主要工作流程："></a>主要工作流程：</h4><p>被调用文件里的函数不分先后</p>
+<h5 id="shoot-init-void"><a href="#shoot-init-void" class="headerlink" title="shoot_init(void)"></a>shoot_init(void)</h5><ul>
+<li>每次加载时重新载入遥控器指针，电机指针及PID数据</li>
+<li>调用了shoot_feedback_update(void)函数来更新数据</li>
+<li>斜波函数(ramp)初始化</li>
+<li>摩擦轮停止</li>
+</ul>
+<h5 id="shoot-control-loop-void"><a href="#shoot-control-loop-void" class="headerlink" title="shoot_control_loop(void)"></a>shoot_control_loop(void)</h5><p>本函数作为中间函数，但是不需要输入指针，直接调用了最大的全局指针shoot_control</p>
+<ul>
+<li>调用shoot_set_mode(void)函数来根据遥控器输入的数值与上次的状态来决定下一次的射击状态</li>
+<li>调用了shoot_feedback_update(void)函数来更新数据</li>
+<li>根据选择的涉及状态设置拨弹轮的速度<blockquote>
+<p>注意：1.考虑到了堵反转的情况  </p>
+</blockquote>
+</li>
+</ul>
+<p>2.开启摩擦轮时考虑到逐渐增加PWM，在这里使用了ramp_calc(&amp;shoot_control.fric2_ramp, SHOOT_FRIC_PWM_ADD_VALUE)函数，但是输入给该函数的指针不是直接控制PWM的变量的指针，相当于构建了一个容器变量<br>3.这里的shoot_control.given_current也是通过了一个中间变量shoot_control.trigger_motor_pid算出来再赋值的</p>
+<ul>
+<li>将预期的摩擦轮电流给摩擦轮</li>
+<li>返回拨弹轮电流<blockquote>
+<p>如果把gimbal任务比shoot任务的抽象级别更高的话，可以认为拨弹轮的抽象级比摩擦轮更高。因为拨弹轮是在gimbal_task里调用的，但是关于摩擦轮的PWM计算和输出都在shoot任务里</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="shoot-set-mode-void"><a href="#shoot-set-mode-void" class="headerlink" title="shoot_set_mode(void)"></a>shoot_set_mode(void)</h5><p>参见流程图 </p>
+<h5 id="shoot-feedback-update-void"><a href="#shoot-feedback-update-void" class="headerlink" title="shoot_feedback_update(void)"></a>shoot_feedback_update(void)</h5><ul>
+<li>为拨弹轮的输出电流做了滤波，又由于拨弹轮是由编码器控制转动的，不能超出量程，所以软件改变转动方向：用ecd值判断电机轴转动的圈数，再用shoot_control.ecd_count变量来计数，记录输出轴的方向</li>
+<li>计算输出轴角度，鼠标按键的时间处理部分（长按计时等）</li>
+</ul>
+<h5 id="trigger-motor-turn-back-void"><a href="#trigger-motor-turn-back-void" class="headerlink" title="trigger_motor_turn_back(void)"></a>trigger_motor_turn_back(void)</h5><p>防倒转处理：<br>若卡住，就记录block_time，到达阈值就倒转</p>
+<h5 id="shoot-bullet-control-void"><a href="#shoot-bullet-control-void" class="headerlink" title="shoot_bullet_control(void)"></a>shoot_bullet_control(void)</h5><p>无传入参数，根据全局变量中的标志位shoot_control.key来确定是否发射。若速度不到位则一直加速，卡死就倒转。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/main/2021/02/17/led-flow-task/" rel="prev" title="led_flow_task">
+      <i class="fa fa-chevron-left"></i> led_flow_task
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/main/2021/02/17/oled-task/" rel="next" title="oled_task">
+      oled_task <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%A9%E6%93%A6%E8%BD%AE%E4%B8%8E%E5%BC%B9%E4%B8%B8%E5%8F%91%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">摩擦轮与弹丸发射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#servo-task-c"><span class="nav-number">2.</span> <span class="nav-text">servo_task.c</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%8C%87%E9%92%88"><span class="nav-number">2.1.</span> <span class="nav-text">主要指针类型与指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">2.主要工作流程：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shoot-c"><span class="nav-number">3.</span> <span class="nav-text">shoot.c</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%8C%87%E9%92%88-1"><span class="nav-number">3.1.</span> <span class="nav-text">主要指针类型与指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">3.2.</span> <span class="nav-text">重要的工作状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">主要工作流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#shoot-init-void"><span class="nav-number">3.3.1.</span> <span class="nav-text">shoot_init(void)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shoot-control-loop-void"><span class="nav-number">3.3.2.</span> <span class="nav-text">shoot_control_loop(void)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shoot-set-mode-void"><span class="nav-number">3.3.3.</span> <span class="nav-text">shoot_set_mode(void)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shoot-feedback-update-void"><span class="nav-number">3.3.4.</span> <span class="nav-text">shoot_feedback_update(void)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#trigger-motor-turn-back-void"><span class="nav-number">3.3.5.</span> <span class="nav-text">trigger_motor_turn_back(void)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shoot-bullet-control-void"><span class="nav-number">3.3.6.</span> <span class="nav-text">shoot_bullet_control(void)</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">共产主义接班人</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/main/archives">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/main/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共产主义接班人</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3b07jhgYy9Y3JAr1zGTmJIOx-gzGzoHsz","app_key":"D10OVRUiMABjvqQkHKYeb9s2","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/main/lib/anime.min.js"></script>
+  <script src="/main/lib/velocity/velocity.min.js"></script>
+  <script src="/main/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/main/js/utils.js"></script>
+
+<script src="/main/js/motion.js"></script>
+
+
+<script src="/main/js/schemes/pisces.js"></script>
+
+
+<script src="/main/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

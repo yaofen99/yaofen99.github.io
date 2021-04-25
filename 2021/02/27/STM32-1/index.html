@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/main/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/main/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/main/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/main/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/main/css/main.css">
+
+
+<link rel="stylesheet" href="/main/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yaofenblogs.info","root":"/main/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="笔记一样的东西，写的很碎，可能只有我自己看得懂...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32_1">
+<meta property="og:url" content="https://yaofenblogs.info/main/2021/02/27/STM32-1/index.html">
+<meta property="og:site_name" content="电控技术文档">
+<meta property="og:description" content="笔记一样的东西，写的很碎，可能只有我自己看得懂...">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-27T14:45:25.000Z">
+<meta property="article:modified_time" content="2021-02-28T07:06:02.680Z">
+<meta property="article:author" content="共产主义接班人">
+<meta property="article:tag" content="碎碎念">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yaofenblogs.info/main/2021/02/27/STM32-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>STM32_1 | 电控技术文档</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/main/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">电控技术文档</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-分类">
+
+    <a href="/main/categories/" rel="section"><i class="fas fa-folder-open fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-官方文档">
+
+    <a href="/main/download/" rel="section"><i class="fa fa-th fa-fw"></i>官方文档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yaofenblogs.info/main/2021/02/27/STM32-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/main/images/avatar.gif">
+      <meta itemprop="name" content="共产主义接班人">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电控技术文档">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STM32_1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-27 22:45:25" itemprop="dateCreated datePublished" datetime="2021-02-27T22:45:25+08:00">2021-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-28 15:06:02" itemprop="dateModified" datetime="2021-02-28T15:06:02+08:00">2021-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/main/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/main/2021/02/27/STM32-1/" class="post-meta-item leancloud_visitors" data-flag-title="STM32_1" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">笔记一样的东西，写的很碎，可能只有我自己看得懂...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天给我叔叔发了一篇很左的东西，有点尴尬，毕竟和这人还不太熟…emmm，不管了，学习！</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我是从去年1月考完试之后才开始使用stm32的，直接上手了大疆的开发板做RM。一开始就跟着大疆C板的开发教程一步步做，但其实那个教程聚焦的主要是各个通信模块的原理，帮你能快速把机器人搭出来，没讲很多单片机原理…等到要自己写通信，配置中断的时候就开始有点手忙脚乱了。得，我回来从基础学stm32吧…  </p>
+<p>以前高中老师教数学的时候，会和我们说什么数学的几个思想几个意识，什么数形结合什么常数分离之类的，虽然听上去有点呆呆的，现在突然怀念起来…随便看了几家的stm32，野火家的100+H，很详细；正点原子家的60H，说的最多的就是自己看手册…感觉国内的几个都像黑马程序员这种培训班一样…真没有尬黑…偶然看到了youtube上有个小博主，在淘宝上开小店的，东西也没什么人买…叫Haoran Chen的，看他讲东西莫名亲切…虽然出的教程不多而且偏向基础…想先把youtube上他家的视频看完再去bilibili快进着看看野火的教程，最后有心思的话再去看正点原子的手册。  </p>
+<h3 id="今天学了啥"><a href="#今天学了啥" class="headerlink" title="今天学了啥"></a>今天学了啥</h3><h4 id="ARM公司"><a href="#ARM公司" class="headerlink" title="ARM公司"></a>ARM公司</h4><p>设计内核和调试系统的技术卖给生产公司赚钱的神仙公司<br>产品分为A,R,M<br>A系主打高端产品，适用于应用处理,支持很多协议，比如NEON，Jazelle RTC之类的<br>R系主打实时处理，比如硬盘，核心产品R4，R4F什么的<br>M系主打微处理，低功耗…没什么好比如的，应该很熟了吧…</p>
+<h4 id="总体配置和概况"><a href="#总体配置和概况" class="headerlink" title="总体配置和概况"></a>总体配置和概况</h4><p>STM32，采用ARM V7构架，纯thumb指令集（这是什么）<br>LQFP封装引脚在外面方便焊接，还有其他的QFN，BGA封装就不好手动封装了<br>84个中断，16个优先级，所有引脚都可作为外部中断的输入<br>每个外设都有独立时钟，可关闭（参考时钟树）<br>原来外部中断等是一开始集成在stm32芯片里的…芯片里有相应的引脚，比如在uart对应的引脚完成了一次传输就会触发中断，这里触发的中断是外部中断…<br>支持的外设，但愿我没记错，2<em>IIC，3</em>USART,2<em>SPI,2</em>CAN（CAN2是CAN1的什么什么映射？记不清了）,USB2.0<br>7通道DMA(用了那么久…终于要知道这是个什么了)<br>自带12位模数转换</p>
+<h4 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h4><p>中断有不同的优先级，分为抢占优先级和响应优先级<br>抢占优先级允许中断嵌套，响应优先级不能嵌套，晚来就排队<br>ARM系统原先是预留了256个中断的位置的，其中16个内部中断，240个外部中断，每个中断的标志位为8bit，但是这里的stm32做了一些调整，设置的中断数量为16+68，并只取高4位设置优先级，于是便有个17个32位的优先级寄存器。其中的响应优先级和抢占优先级就是瓜分这4个bit产生的，具体的还没看…如果两个中断刚好优先级完全相同，又同时发生，以在中断表上的排序为准。  </p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>定时器就看了一丢丢，有空回来补吧…<br>定时器分为基本定时器：6，7；通用定时器：2，3，4，5；高级定时器1，8<br>输入捕获：传送带上用的，给红外线脉冲计数<br>互补输出：比如防止电机进入死区（什么意思）</p>
+<h4 id="学到的零散的不知道放在哪一块的知识"><a href="#学到的零散的不知道放在哪一块的知识" class="headerlink" title="学到的零散的不知道放在哪一块的知识"></a>学到的零散的不知道放在哪一块的知识</h4><p>每个时钟的频率来源要看手册…我终于知道cube里面的时钟树是什么意思了<br>板载的两个USB，其中一个是真的USB，另一个是假装成USB的UART，也可以作为slave使用，在51单片机中就是使用tx和rx的串口直接烧录的，但是stm32支持更多的烧录方式，比如<br>USB的芯片用的是232,又听说了一个芯片叫3232，意思是3V额定电压<br>调试的时候将程序烧录进flash，再用调试器一步一步给CPU（调试原理）<br>可编程逻辑控制PLC<br>还有一些不太熟悉的写下来就忘了的芯片等以后熟一点再写…</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/main/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag"># 碎碎念</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/main/2021/02/23/Loop-1000Hz/" rel="prev" title="Loop_1000Hz">
+      <i class="fa fa-chevron-left"></i> Loop_1000Hz
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/main/2021/02/28/STM32-2/" rel="next" title="STM32_2">
+      STM32_2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E5%A4%A9%E5%AD%A6%E4%BA%86%E5%95%A5"><span class="nav-number">1.1.</span> <span class="nav-text">今天学了啥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ARM%E5%85%AC%E5%8F%B8"><span class="nav-number">1.1.1.</span> <span class="nav-text">ARM公司</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E9%85%8D%E7%BD%AE%E5%92%8C%E6%A6%82%E5%86%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">总体配置和概况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD"><span class="nav-number">1.1.3.</span> <span class="nav-text">中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="nav-number">1.1.4.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%A6%E5%88%B0%E7%9A%84%E9%9B%B6%E6%95%A3%E7%9A%84%E4%B8%8D%E7%9F%A5%E9%81%93%E6%94%BE%E5%9C%A8%E5%93%AA%E4%B8%80%E5%9D%97%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.5.</span> <span class="nav-text">学到的零散的不知道放在哪一块的知识</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">共产主义接班人</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/main/archives">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/main/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共产主义接班人</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3b07jhgYy9Y3JAr1zGTmJIOx-gzGzoHsz","app_key":"D10OVRUiMABjvqQkHKYeb9s2","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/main/lib/anime.min.js"></script>
+  <script src="/main/lib/velocity/velocity.min.js"></script>
+  <script src="/main/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/main/js/utils.js"></script>
+
+<script src="/main/js/motion.js"></script>
+
+
+<script src="/main/js/schemes/pisces.js"></script>
+
+
+<script src="/main/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
