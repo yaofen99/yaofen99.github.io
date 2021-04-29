@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/main/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/main/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/main/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/main/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/main/css/main.css">
+
+
+<link rel="stylesheet" href="/main/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yaofenblogs.info","root":"/main/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="笔记一样的东西，写的很碎，可能只有我自己看得懂...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32_2">
+<meta property="og:url" content="https://yaofenblogs.info/main/2021/02/28/STM32-2/index.html">
+<meta property="og:site_name" content="电控技术文档">
+<meta property="og:description" content="笔记一样的东西，写的很碎，可能只有我自己看得懂...">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-28T14:45:25.000Z">
+<meta property="article:modified_time" content="2021-03-13T05:39:48.166Z">
+<meta property="article:author" content="共产主义接班人">
+<meta property="article:tag" content="碎碎念">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yaofenblogs.info/main/2021/02/28/STM32-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>STM32_2 | 电控技术文档</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/main/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">电控技术文档</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-分类">
+
+    <a href="/main/categories/" rel="section"><i class="fas fa-folder-open fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-官方文档">
+
+    <a href="/main/download/" rel="section"><i class="fa fa-th fa-fw"></i>官方文档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yaofenblogs.info/main/2021/02/28/STM32-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/main/images/avatar.gif">
+      <meta itemprop="name" content="共产主义接班人">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="电控技术文档">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STM32_2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-28 22:45:25" itemprop="dateCreated datePublished" datetime="2021-02-28T22:45:25+08:00">2021-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-13 13:39:48" itemprop="dateModified" datetime="2021-03-13T13:39:48+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/main/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/main/2021/02/28/STM32-2/" class="post-meta-item leancloud_visitors" data-flag-title="STM32_2" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">笔记一样的东西，写的很碎，可能只有我自己看得懂...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天回学校了，在火车上写的，等会儿别忘了补票</p>
+<h2 id="stm32最小系统"><a href="#stm32最小系统" class="headerlink" title="stm32最小系统"></a>stm32最小系统</h2><p>电源模块：AMS1117，5V-&gt;3.3V<br>复位电路：低电平就能复位了，再并连一块滤波电容<br>下载电路：通常是使用usb转232</p>
+<h2 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h2><ol>
+<li>主闪存：flash启动，实际位置 0x0800 0000</li>
+<li>系统存储器，实际位置 0x1FFF F000</li>
+<li>内置SRAM：内存启动，速度最快，实际位置：0x2000 0000 ，配置好像有点麻烦，要将NVIC异常表和偏移寄存器什么的映射到SRAM中，看不太懂，有空再看<br>1，2方式启动时，将内存和系统存储器的数据映射到0x0000 0000上，代码区默认从0x0000 0000开始执行<br>允许从SRAM启动是STM32的特别之处，具体哪里特殊忘了记了…</li>
+</ol>
+<h2 id="内嵌自举程序"><a href="#内嵌自举程序" class="headerlink" title="内嵌自举程序"></a>内嵌自举程序</h2><p>通信串口<br>使用接口：  USART1/2：使用内置8m的HSI<br>            CAN和USB：需要外部存在8M…我写的什么字啊我自己都看不清<br>51只能232不能485</p>
+<blockquote>
+<p>485相当于232的升级版，正电平为1，负电平为0，降低了电压，保护芯片<br>使用内置的ISP程序下载的时候，要设置boot的值让stm32从ISP程序在的地方启动，自动下载到flash，下载完后再将boot配置成flash启动</p>
+</blockquote>
+<h2 id="时钟树"><a href="#时钟树" class="headerlink" title="时钟树"></a>时钟树</h2><p>也就是说，初始的时钟只有4个，通过不断的分频，锁相环(PLL)和倍频，制造出很多实际的电平给具体的电器使用</p>
+<blockquote>
+<p>锁相环使用压控振荡器，同时使用参考稳定的基准频率，似乎是比较参考电平与实际产生电平的值，再将得到的误差信号负反馈给输入信号，直至稳定，所以叫锁相环…具体的实现还不是很懂，有空看看…  </p>
+</blockquote>
+<h3 id="总线与时钟源"><a href="#总线与时钟源" class="headerlink" title="总线与时钟源"></a>总线与时钟源</h3><p>SYSCLK: 一看名字就是系统时钟了，时钟信号来源？，通过AHB分频因子控制是什么鬼，再看看吧…<br>AHB(Advanced High Performance Bus)-&gt; HCLK(High-speed clock)<br>APB(Advanced Performance Bus)-&gt; PCLK(Peripheral clock) 用来挂载外设的时钟  </p>
+<h4 id="数值关系"><a href="#数值关系" class="headerlink" title="数值关系"></a>数值关系</h4><p>这里的数值关系使用的都是推荐值…<br>PCLK2 = HCLK = SYSCLK = PLLCLK = 72M，72m是推荐值，最高好像是100多m，但是官方推荐说在72m时可以保持稳定<br>PCLK1 = HCLK/2 = 36M, 没错，1是36m  </p>
+<h3 id="其他时钟"><a href="#其他时钟" class="headerlink" title="其他时钟"></a>其他时钟</h3><ol>
+<li>USB时钟 通过时钟预分频，对时钟的要求很严格，必须配置到？？？m，妈的又没注意</li>
+<li>coretex时钟，由HCLK 8分频  </li>
+<li>ADC时钟，通过PCLK预分配，什么采样周期，什么不小于1us的忘了</li>
+<li>RTC，realtime clock，用来给系统计时,由HSE/128<br>这里还讲到了独立看门狗，在同一个应用领域的东西吗…我还没学看门狗…</li>
+<li>MCO时钟，可以输出作为其他芯片的外部时钟…，固定在pin8？</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/main/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag"># 碎碎念</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/main/2021/02/27/STM32-1/" rel="prev" title="STM32_1">
+      <i class="fa fa-chevron-left"></i> STM32_1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/main/2021/03/01/2020-3-1/" rel="next" title="2020-3-1">
+      2020-3-1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#stm32%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">stm32最小系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">启动模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%B5%8C%E8%87%AA%E4%B8%BE%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">内嵌自举程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%92%9F%E6%A0%91"><span class="nav-number">4.</span> <span class="nav-text">时钟树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF%E4%B8%8E%E6%97%B6%E9%92%9F%E6%BA%90"><span class="nav-number">4.1.</span> <span class="nav-text">总线与时钟源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%85%B3%E7%B3%BB"><span class="nav-number">4.1.1.</span> <span class="nav-text">数值关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%97%B6%E9%92%9F"><span class="nav-number">4.2.</span> <span class="nav-text">其他时钟</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">共产主义接班人</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/main/archives">
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/main/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">共产主义接班人</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3b07jhgYy9Y3JAr1zGTmJIOx-gzGzoHsz","app_key":"D10OVRUiMABjvqQkHKYeb9s2","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/main/lib/anime.min.js"></script>
+  <script src="/main/lib/velocity/velocity.min.js"></script>
+  <script src="/main/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/main/js/utils.js"></script>
+
+<script src="/main/js/motion.js"></script>
+
+
+<script src="/main/js/schemes/pisces.js"></script>
+
+
+<script src="/main/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
