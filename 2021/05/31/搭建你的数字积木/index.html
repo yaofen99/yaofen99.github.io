@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":"flase"},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="LMK大佬安利了这本书就买来看看其实学过了Verilog，但是当时只是为了做作业，又是外教课，就学的很水，很多阻塞非阻塞之类的东西都没弄明白…借这本书重新回顾一下Verilog吧 配置一下博客总结鸟哥的LINUX第零章和Verilog到现在的东西 第一部分 逻辑设计基础数字逻辑偏重于逻辑设计而不是偏重参数的选取，但在高频率，大功率，高电压和弱电压等情况不适用。HDL是硬件描述语言，与软件有本质不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建你的数字积木">
+<meta property="og:url" content="http://example.com/2021/05/31/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%AF%E6%9C%A8/index.html">
+<meta property="og:site_name" content="Robin&#39;s Learning Track">
+<meta property="og:description" content="LMK大佬安利了这本书就买来看看其实学过了Verilog，但是当时只是为了做作业，又是外教课，就学的很水，很多阻塞非阻塞之类的东西都没弄明白…借这本书重新回顾一下Verilog吧 配置一下博客总结鸟哥的LINUX第零章和Verilog到现在的东西 第一部分 逻辑设计基础数字逻辑偏重于逻辑设计而不是偏重参数的选取，但在高频率，大功率，高电压和弱电压等情况不适用。HDL是硬件描述语言，与软件有本质不同">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-31T13:17:58.000Z">
+<meta property="article:modified_time" content="2021-06-01T18:04:09.837Z">
+<meta property="article:author" content="Qiong Huang">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/05/31/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%AF%E6%9C%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>搭建你的数字积木 | Robin's Learning Track</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Robin's Learning Track</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/31/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%AF%E6%9C%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qiong Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's Learning Track">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搭建你的数字积木
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-31 21:17:58" itemprop="dateCreated datePublished" datetime="2021-05-31T21:17:58+08:00">2021-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-02 02:04:09" itemprop="dateModified" datetime="2021-06-02T02:04:09+08:00">2021-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>LMK大佬安利了这本书就买来看看<br>其实学过了Verilog，但是当时只是为了做作业，又是外教课，就学的很水，很多阻塞非阻塞之类的东西都没弄明白…借这本书重新回顾一下Verilog吧</p>
+<p>配置一下博客<br>总结鸟哥的LINUX第零章和Verilog到现在的东西</p>
+<h2 id="第一部分-逻辑设计基础"><a href="#第一部分-逻辑设计基础" class="headerlink" title="第一部分 逻辑设计基础"></a>第一部分 逻辑设计基础</h2><p>数字逻辑偏重于逻辑设计而不是偏重参数的选取，但在高频率，大功率，高电压和弱电压等情况不适用。<br>HDL是硬件描述语言，与软件有本质不同，比如并行或顺序执行。以前用的arm是单核电路，但是fpga可以轻易实现多线程同时运作。这一点同时也要求了解基本的总线构架和底层的数字电路知识。  </p>
+<h3 id="硬件描述语言层级"><a href="#硬件描述语言层级" class="headerlink" title="硬件描述语言层级"></a>硬件描述语言层级</h3><p>分层自然是很重要的，设计时也要分层然后逐层分析验证<br>根据传统的抽象层级：    </p>
+<ul>
+<li>系统级  </li>
+<li>算法级  </li>
+<li>RTL级  </li>
+<li>门级  </li>
+<li>开关级  </li>
+</ul>
+<p>Verilog 具有行为描述能力（和c语言不一样，顺序写的程序不一定是先后顺序），其应用范围较广，PLD只是其中一个子集。  </p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>$可以用来定义标识符，但是通常用于命名系统任务或函数。<br>Verilog对大小写不敏感但是所有关键词均为小写。  </p>
+<h3 id="PLD器件发展史"><a href="#PLD器件发展史" class="headerlink" title="PLD器件发展史"></a>PLD器件发展史</h3><p>有空再看，感觉现在不会问题不大  </p>
+<h3 id="关键参数"><a href="#关键参数" class="headerlink" title="关键参数"></a>关键参数</h3><ul>
+<li>管教数量  </li>
+<li>逻辑资源  </li>
+<li>片内存储器  </li>
+<li>DSP资源  </li>
+<li>功耗  </li>
+<li>封装形式  </li>
+<li>时钟频率，时钟管理单元，锁相环等  </li>
+</ul>
+<h3 id="初识Vivado"><a href="#初识Vivado" class="headerlink" title="初识Vivado"></a>初识Vivado</h3><p>集成了很多开发工具的设计套件<br>层次化器件编辑器和布局管理器  </p>
+<p> 其实还是要动手尝试的吧…等有空了点个灯</p>
+<h2 id="第二章-Verilog基础"><a href="#第二章-Verilog基础" class="headerlink" title="第二章 Verilog基础"></a>第二章 Verilog基础</h2><h3 id="语法概括"><a href="#语法概括" class="headerlink" title="语法概括"></a>语法概括</h3><p>模块声明从moudle关键词开始，到endmodule关键词结束，模块内部的5个组成部分是:</p>
+<ul>
+<li>变量声明</li>
+<li>数据流语句</li>
+<li>低层模块实例</li>
+<li>行为语句块</li>
+<li>任务和函数<br>模块通过相互调用实例完成调用，实例与声明不同。</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="reg与memery"><a href="#reg与memery" class="headerlink" title="reg与memery"></a>reg与memery</h4><p>当reg型数据被当作操作数时，被视为无符号数  </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>reg [n-1:0]； //定义一个n位寄存器<br>reg memb [n-1:0]; //一个由n个1位寄存器构成的存储器组<br>区别是：n位寄存器可以直接赋值，但是n个1位存储器不行</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="parameter"><a href="#parameter" class="headerlink" title="parameter"></a>parameter</h4><p>提高程序的可读性和可维护性  </p>
+<h4 id="realtime"><a href="#realtime" class="headerlink" title="realtime"></a>realtime</h4><p>以实数形式存储时间</p>
+<h4 id="wand"><a href="#wand" class="headerlink" title="wand"></a>wand</h4><p>用集电极开路电极实现，表示线或线网，任意一个输出为0，则为0</p>
+<h4 id="wor"><a href="#wor" class="headerlink" title="wor"></a>wor</h4><p>表现发射级耦合电路，表示线或线网，任意一个输出为1，则为1</p>
+<h4 id="tri"><a href="#tri" class="headerlink" title="tri"></a>tri</h4><p>三态线型<br>tri0：带下拉电阻的线网<br>tri1：带上拉电阻的线网  </p>
+<h3 id="运算操作"><a href="#运算操作" class="headerlink" title="运算操作"></a>运算操作</h3><h4 id="gt-gt-逻辑右移"><a href="#gt-gt-逻辑右移" class="headerlink" title="&gt;&gt; 逻辑右移"></a>&gt;&gt; 逻辑右移</h4><p>逻辑移动针对无符号数</p>
+<h4 id="gt-gt-gt-算术右移"><a href="#gt-gt-gt-算术右移" class="headerlink" title="&gt;&gt;&gt; 算术右移"></a>&gt;&gt;&gt; 算术右移</h4><p>算术移动针对有符号数</p>
+<h4 id="事件相等"><a href="#事件相等" class="headerlink" title="===事件相等"></a>===事件相等</h4><h4 id="！-事件不相等"><a href="#！-事件不相等" class="headerlink" title="！==事件不相等"></a>！==事件不相等</h4><h4 id="按位拼接"><a href="#按位拼接" class="headerlink" title="{}按位拼接"></a>{}按位拼接</h4><h2 id="第三章-组合逻辑电路"><a href="#第三章-组合逻辑电路" class="headerlink" title="第三章 组合逻辑电路"></a>第三章 组合逻辑电路</h2><p>always和init是erilog中重要的块<br>组合逻辑电路主要有三部分：块赋值，条件语句，循环语句<br>组合电路一般使用电平触发，时序电路使用边缘触发<br>组合电路使用阻塞赋值，时序电路使用非组合赋值（实际效果只相差几纳秒，但是对应不同的硬件逻辑和拓扑复杂度）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/31/Ubuntu%E5%88%9D%E4%BD%93%E9%AA%8C/" rel="prev" title="Ubuntu初体验">
+      <i class="fa fa-chevron-left"></i> Ubuntu初体验
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/04/%E9%B8%9F%E5%93%A5%E7%9A%84Linux%E7%A7%81%E6%88%BF%E8%8F%9C/" rel="next" title="鸟哥的Linux私房菜">
+      鸟哥的Linux私房菜 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">第一部分 逻辑设计基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%8F%8F%E8%BF%B0%E8%AF%AD%E8%A8%80%E5%B1%82%E7%BA%A7"><span class="nav-number">1.1.</span> <span class="nav-text">硬件描述语言层级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PLD%E5%99%A8%E4%BB%B6%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">1.3.</span> <span class="nav-text">PLD器件发展史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%8F%82%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">关键参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Vivado"><span class="nav-number">1.5.</span> <span class="nav-text">初识Vivado</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-Verilog%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">第二章 Verilog基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A6%82%E6%8B%AC"><span class="nav-number">2.1.</span> <span class="nav-text">语法概括</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reg%E4%B8%8Ememery"><span class="nav-number">2.2.1.</span> <span class="nav-text">reg与memery</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter"><span class="nav-number">2.2.2.</span> <span class="nav-text">parameter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#realtime"><span class="nav-number">2.2.3.</span> <span class="nav-text">realtime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wand"><span class="nav-number">2.2.4.</span> <span class="nav-text">wand</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wor"><span class="nav-number">2.2.5.</span> <span class="nav-text">wor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tri"><span class="nav-number">2.2.6.</span> <span class="nav-text">tri</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.</span> <span class="nav-text">运算操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-gt-%E9%80%BB%E8%BE%91%E5%8F%B3%E7%A7%BB"><span class="nav-number">2.3.1.</span> <span class="nav-text">&gt;&gt; 逻辑右移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gt-gt-gt-%E7%AE%97%E6%9C%AF%E5%8F%B3%E7%A7%BB"><span class="nav-number">2.3.2.</span> <span class="nav-text">&gt;&gt;&gt; 算术右移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E7%AD%89"><span class="nav-number">2.3.3.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;事件相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%81-%E4%BA%8B%E4%BB%B6%E4%B8%8D%E7%9B%B8%E7%AD%89"><span class="nav-number">2.3.4.</span> <span class="nav-text">！&#x3D;&#x3D;事件不相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E6%8B%BC%E6%8E%A5"><span class="nav-number">2.3.5.</span> <span class="nav-text">{}按位拼接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">第三章 组合逻辑电路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qiong Huang"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qiong Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yaofen99" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yaofen99" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yaofen233@gmail.com" title="E-Mail → mailto:yaofen233@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/425177880" title="QQ → 425177880"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiong Huang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
