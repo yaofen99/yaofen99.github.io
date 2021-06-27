@@ -95,7 +95,7 @@
       <h1 class="site-title">Robin's Learning Track</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">绩点比本人更飘逸</p>
+      <p class="site-subtitle" itemprop="description">emmm</p>
   </div>
 
   <div class="site-nav-right">
@@ -157,6 +157,72 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/15/journal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qiong Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Robin's Learning Track">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/15/journal/" class="post-title-link" itemprop="url">journal</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-15 08:27:03 / Modified: 10:54:42" itemprop="dateCreated datePublished" datetime="2021-06-15T08:27:03+08:00">2021-06-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>journal is journal</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/15/journal/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -330,7 +396,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-02 02:04:09" itemprop="dateModified" datetime="2021-06-02T02:04:09+08:00">2021-06-02</time>
+                <time title="Modified: 2021-06-26 19:00:50" itemprop="dateModified" datetime="2021-06-26T19:00:50+08:00">2021-06-26</time>
               </span>
 
           
@@ -344,56 +410,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>LMK大佬安利了这本书就买来看看<br>其实学过了Verilog，但是当时只是为了做作业，又是外教课，就学的很水，很多阻塞非阻塞之类的东西都没弄明白…借这本书重新回顾一下Verilog吧</p>
-<p>配置一下博客<br>总结鸟哥的LINUX第零章和Verilog到现在的东西</p>
-<h2 id="第一部分-逻辑设计基础"><a href="#第一部分-逻辑设计基础" class="headerlink" title="第一部分 逻辑设计基础"></a>第一部分 逻辑设计基础</h2><p>数字逻辑偏重于逻辑设计而不是偏重参数的选取，但在高频率，大功率，高电压和弱电压等情况不适用。<br>HDL是硬件描述语言，与软件有本质不同，比如并行或顺序执行。以前用的arm是单核电路，但是fpga可以轻易实现多线程同时运作。这一点同时也要求了解基本的总线构架和底层的数字电路知识。  </p>
-<h3 id="硬件描述语言层级"><a href="#硬件描述语言层级" class="headerlink" title="硬件描述语言层级"></a>硬件描述语言层级</h3><p>分层自然是很重要的，设计时也要分层然后逐层分析验证<br>根据传统的抽象层级：    </p>
-<ul>
-<li>系统级  </li>
-<li>算法级  </li>
-<li>RTL级  </li>
-<li>门级  </li>
-<li>开关级  </li>
-</ul>
-<p>Verilog 具有行为描述能力（和c语言不一样，顺序写的程序不一定是先后顺序），其应用范围较广，PLD只是其中一个子集。  </p>
-<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>$可以用来定义标识符，但是通常用于命名系统任务或函数。<br>Verilog对大小写不敏感但是所有关键词均为小写。  </p>
-<h3 id="PLD器件发展史"><a href="#PLD器件发展史" class="headerlink" title="PLD器件发展史"></a>PLD器件发展史</h3><p>有空再看，感觉现在不会问题不大  </p>
-<h3 id="关键参数"><a href="#关键参数" class="headerlink" title="关键参数"></a>关键参数</h3><ul>
-<li>管教数量  </li>
-<li>逻辑资源  </li>
-<li>片内存储器  </li>
-<li>DSP资源  </li>
-<li>功耗  </li>
-<li>封装形式  </li>
-<li>时钟频率，时钟管理单元，锁相环等  </li>
-</ul>
-<h3 id="初识Vivado"><a href="#初识Vivado" class="headerlink" title="初识Vivado"></a>初识Vivado</h3><p>集成了很多开发工具的设计套件<br>层次化器件编辑器和布局管理器  </p>
-<p> 其实还是要动手尝试的吧…等有空了点个灯</p>
-<h2 id="第二章-Verilog基础"><a href="#第二章-Verilog基础" class="headerlink" title="第二章 Verilog基础"></a>第二章 Verilog基础</h2><h3 id="语法概括"><a href="#语法概括" class="headerlink" title="语法概括"></a>语法概括</h3><p>模块声明从moudle关键词开始，到endmodule关键词结束，模块内部的5个组成部分是:</p>
-<ul>
-<li>变量声明</li>
-<li>数据流语句</li>
-<li>低层模块实例</li>
-<li>行为语句块</li>
-<li>任务和函数<br>模块通过相互调用实例完成调用，实例与声明不同。</li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="reg与memery"><a href="#reg与memery" class="headerlink" title="reg与memery"></a>reg与memery</h4><p>当reg型数据被当作操作数时，被视为无符号数  </p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>reg [n-1:0]； //定义一个n位寄存器<br>reg memb [n-1:0]; //一个由n个1位寄存器构成的存储器组<br>区别是：n位寄存器可以直接赋值，但是n个1位存储器不行</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="parameter"><a href="#parameter" class="headerlink" title="parameter"></a>parameter</h4><p>提高程序的可读性和可维护性  </p>
-<h4 id="realtime"><a href="#realtime" class="headerlink" title="realtime"></a>realtime</h4><p>以实数形式存储时间</p>
-<h4 id="wand"><a href="#wand" class="headerlink" title="wand"></a>wand</h4><p>用集电极开路电极实现，表示线或线网，任意一个输出为0，则为0</p>
-<h4 id="wor"><a href="#wor" class="headerlink" title="wor"></a>wor</h4><p>表现发射级耦合电路，表示线或线网，任意一个输出为1，则为1</p>
-<h4 id="tri"><a href="#tri" class="headerlink" title="tri"></a>tri</h4><p>三态线型<br>tri0：带下拉电阻的线网<br>tri1：带上拉电阻的线网  </p>
-<h3 id="运算操作"><a href="#运算操作" class="headerlink" title="运算操作"></a>运算操作</h3><h4 id="gt-gt-逻辑右移"><a href="#gt-gt-逻辑右移" class="headerlink" title="&gt;&gt; 逻辑右移"></a>&gt;&gt; 逻辑右移</h4><p>逻辑移动针对无符号数</p>
-<h4 id="gt-gt-gt-算术右移"><a href="#gt-gt-gt-算术右移" class="headerlink" title="&gt;&gt;&gt; 算术右移"></a>&gt;&gt;&gt; 算术右移</h4><p>算术移动针对有符号数</p>
-<h4 id="事件相等"><a href="#事件相等" class="headerlink" title="===事件相等"></a>===事件相等</h4><h4 id="！-事件不相等"><a href="#！-事件不相等" class="headerlink" title="！==事件不相等"></a>！==事件不相等</h4><h4 id="按位拼接"><a href="#按位拼接" class="headerlink" title="{}按位拼接"></a>{}按位拼接</h4><h2 id="第三章-组合逻辑电路"><a href="#第三章-组合逻辑电路" class="headerlink" title="第三章 组合逻辑电路"></a>第三章 组合逻辑电路</h2><p>always和init是erilog中重要的块<br>组合逻辑电路主要有三部分：块赋值，条件语句，循环语句<br>组合电路一般使用电平触发，时序电路使用边缘触发<br>组合电路使用阻塞赋值，时序电路使用非组合赋值（实际效果只相差几纳秒，但是对应不同的硬件逻辑和拓扑复杂度）</p>
-
+          <p>阅读笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/31/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E6%95%B0%E5%AD%97%E7%A7%AF%E6%9C%A8/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -549,7 +574,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
