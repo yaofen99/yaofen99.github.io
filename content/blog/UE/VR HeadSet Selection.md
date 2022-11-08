@@ -12,6 +12,4 @@ draft: true
 
 [VIVE](../../file/UE/Introduction/VIVE_Focus_User_Guide.pdf)
 
-```
-{{%link test%}}Some Text{{%/link%}}
-```
+it is just a test, may it work
