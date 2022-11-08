@@ -6,4 +6,12 @@ draft: true
 
 > Attached is the Full user guides of Vive and Oculus
 >
-> [Vive User Guide](\file\UE\Introduction\VIVE_Focus_User_Guide.pdf)
+> ```
+> 
+> ```
+
+[VIVE](../../file/UE/Introduction/VIVE_Focus_User_Guide.pdf)
+
+```
+{{%link test%}}Some Text{{%/link%}}
+```
