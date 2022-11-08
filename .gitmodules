@@ -1,3 +1,6 @@
 [submodule "theme/hugo-tranquilpeak-theme"]
 	path = theme/hugo-tranquilpeak-theme
 	url = git@github.com:kakawait/hugo-tranquilpeak-theme.git
+[submodule "themes/hugo-tranquilpeak-theme"]
+	path = themes/hugo-tranquilpeak-theme
+	url = git@github.com:kakawait/hugo-tranquilpeak-theme.git
