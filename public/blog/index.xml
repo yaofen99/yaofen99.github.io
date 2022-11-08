@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Robin&#39;s trace</title>
+    <link>https://yaofen99.github.io/blog/</link>
+    <description>Recent content in Blogs on Robin&#39;s trace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Nov 2022 14:53:56 +0000</lastBuildDate><atom:link href="https://yaofen99.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VR HeadSet Selection</title>
+      <link>https://yaofen99.github.io/blog/ue/vr-headset-selection/</link>
+      <pubDate>Tue, 08 Nov 2022 14:53:56 +0000</pubDate>
+      
+      <guid>https://yaofen99.github.io/blog/ue/vr-headset-selection/</guid>
+      <description>Attached is the Full user guides of Vive and Oculus
+Vive User Guide</description>
+    </item>
+    
+    <item>
+      <title>VR Application Exploration</title>
+      <link>https://yaofen99.github.io/blog/ue/vr-application-exploration/</link>
+      <pubDate>Tue, 08 Nov 2022 14:16:48 +0000</pubDate>
+      
+      <guid>https://yaofen99.github.io/blog/ue/vr-application-exploration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UE5 Setup on MAC</title>
+      <link>https://yaofen99.github.io/blog/ue/ue5-setup-on-mac/</link>
+      <pubDate>Sun, 30 Oct 2022 17:06:41 +0000</pubDate>
+      
+      <guid>https://yaofen99.github.io/blog/ue/ue5-setup-on-mac/</guid>
+      <description>Mac is not a recommended platform to develop Unreal Engine Project.
+Several things need to be noticed:
+Do not update your Mac to the latest macOS Ventura 13.0, as the Xcode will be incompatible. Do not use the latest Xcode 14, as the Unreal Engine only support Xcode 13.0, and Do not forget to turn off the update automatically. </description>
+    </item>
+    
+    <item>
+      <title>Apm Conpile Debug</title>
+      <link>https://yaofen99.github.io/blog/embeded-system/apm-conpile-debug/</link>
+      <pubDate>Thu, 11 Aug 2022 16:28:43 +0800</pubDate>
+      
+      <guid>https://yaofen99.github.io/blog/embeded-system/apm-conpile-debug/</guid>
+      <description>Build APM from source code on MAC Book M1 Pro and explore the possible debug(embedded) methods.
+Build waf is a special tool to organize the framework which means it is not quite common.
+the config script is written in python and seems can only generate .elf file for some specific boards like ESP32&amp;hellip;
+Compile process become smoothly after I use a reliable but expensive proxy.
+Debug GDB on m1 mac is not supported till now, but lldb is available.</description>
+    </item>
+    
+  </channel>
+</rss>
