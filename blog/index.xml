@@ -6,7 +6,22 @@
     <description>Recent content in Blogs on Robin&#39;s trace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Nov 2022 14:53:56 +0000</lastBuildDate><atom:link href="https://yaofen99.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Nov 2022 17:22:25 +0000</lastBuildDate><atom:link href="https://yaofen99.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ADC_Midterm_Notes</title>
+      <link>https://yaofen99.github.io/blog/class-notes/adc_midterm_notes/</link>
+      <pubDate>Wed, 09 Nov 2022 17:22:25 +0000</pubDate>
+      
+      <guid>https://yaofen99.github.io/blog/class-notes/adc_midterm_notes/</guid>
+      <description>Relationship between transmission rates bandwith $$ = f_B $$
+Binary data rate $$ = R_s = \frac{1}{T_s} $$
+Roll off factor $$ f_B = \frac{1+\alpha}{2*T_s} $$
+trade-off: An increase in a increase the required bandwidth but decrease the ISI, and vice versa.
+Sample signal and ideal low-pass filter $$ Example: \newline m(t) = 6cos(8,000\pi t) + 2cos(20,000\pi t) $$
+Draw the portion of the amplitude of&amp;hellip;
+Sample rate $$ = f_s &amp;gt; 2 * Highest \space Frequency \space component $$</description>
+    </item>
+    
     <item>
       <title>VR HeadSet Selection</title>
       <link>https://yaofen99.github.io/blog/ue/vr-headset-selection/</link>
